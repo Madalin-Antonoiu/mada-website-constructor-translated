@@ -3,16 +3,6 @@
 //Store iframe window's content
 var clientFrameWindow = document.getElementById('clientframe').contentWindow;
 
-//Track drag-start
-function dragstart_handler(ev) {
-    console.log("dragStart");
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-//Track drag-end
-function dragend_handler(ev) {
-    console.log("dragEnd");
-}
 
 //Never delete from here on
 var total = 0;
@@ -58,7 +48,41 @@ document.getElementById('clientframe').contentWindow.addEventListener("drop", fu
         total += 1;
         console.log("Total Events Fired = " + total);
         total = 0;
+
+        var data = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(data));
+        // Clear the drag data cache (for all formats/types)
+        event.dataTransfer.clearData();
+
+        //Need to add it after element
+        
+        //Let`s handle the carry html and 
+        /*
+        //
+        var data = event.dataTransfer.getData("text");
+        // var insertionPoint = $("#clientframe").contents().find(".drop-marker");
+        event.target.appendChild(clientFrameWindow.document.getElementById(data));
+        event.dataTransfer.clearData(); */
+        //not checking for my line here- i should drop where line shows up
     }, false);
+
+
+//4- Drag-end
+function dragend_handler(ev) {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("dragEnd - Blue line removed");
+
+    //Remove created blue line on Drag End
+    clientFrameWindow.document.querySelector('.reserved-drop-marker').remove();
+}
+
+//5-  Drag-start ( + drag drop should carry and drop data)
+function dragstart_handler(ev) {
+    console.log("dragStart - Here i should carry data");
+
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+}
 
 
 //Let`s add a line to show where drop
