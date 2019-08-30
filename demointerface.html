@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Manto DND Rewrite | Vanilla JS</title>
     <meta name="description" content="Building a cross frame drag-drop interface using HTML5 for precise insertions">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="./demointerface.css" rel="stylesheet">
+
 </head>
+
 <body>
-<div id="dragitemslist">
-    <h3>Draggable Item List</h3>
-    <div>
-        <ul id="dragitemslistcontainer">
-            <li draggable="true" ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)"><i class="fa fa-header"></i><p>Header</p></li>
-            <li draggable="true" ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)"><i class="fa fa-bar-chart"></i><p>Chart</p></li>
-            <li draggable="true" ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)"><i class="fa fa-envelope"></i><p>Contact</p></li>
-        </ul>
+    <div id="dragitemslist">
+        <h3>Draggable Item List</h3>
+        <div>
+            <ul id="dragitemslistcontainer">
+                <li draggable="true" ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)"><i
+                        class="fa fa-header"></i>
+                    <p>Header</p>
+                </li>
+                <li draggable="true" ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)"><i
+                        class="fa fa-bar-chart"></i>
+                    <p>Chart</p>
+                </li>
+                <li draggable="true" ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)"><i
+                        class="fa fa-envelope"></i>
+                    <p>Contact</p>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div id="clientframe-container">
-    <iframe id="clientframe" src="./client.html" frameborder="0"></iframe>
-</div>
+    <div id="clientframe-container">
+        <iframe id="clientframe" src="./client.html" frameborder="0"></iframe>
+    </div>
 
-<!-- ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)" can be removed -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-<script src="./script.js"></script>
+    <!-- ondragstart="dragstart_handler(event)" ondragend="dragend_handler(event)" can be removed -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="./script.js"></script>
 </body>
+
 </html>
